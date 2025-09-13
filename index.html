@@ -1,10 +1,10 @@
-9 <!DOCTYPE html> 
+<!DOCTYPE html> 
 <html lang="en"> 
 <head>
     <meta name="google-site-verification" content="-MXEHVXZdXMAdMQlwwyf20T0BRplZ72BPk7YYerjpHI" />  
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How [Name] Made $195,706  (Video Proof)</title>
+    <title>How Mark Made $195,706 (Video Proof)</title>
     <style>
         body {
             font-family: 'Arial', sans-serif; 
@@ -21,25 +21,25 @@
         }
         header { 
             text-align: center;  
-            padding: 30px 0; /* Kleinerer Header */
+            padding: 30px 0;
             background: linear-gradient(135deg, #6e00ff 0%, #ff00d4 100%);
-            border-radius: 10px 
-            margin-bottom: 20px; /* Weniger Abstand */
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
         h1 {
-            font-size: 2.2rem; /* Kleinere Schrift */ 
+            font-size: 2.2rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         .subhead {
-            font-size: 1.1rem; /* Kleinere Schrift */
+            font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 15px;
         }
         .video-container {
-            margin: 20px 0; /* Weniger Abstand */
+            margin: 20px 0;
             position: relative;
-            padding-bottom: 40%; /* Kleinere Video-Höhe (war 56.25%) */
+            padding-bottom: 40%;
             height: 0;
             overflow: hidden;
         }
@@ -54,16 +54,16 @@
         }
         .proof-badge {
             background: #00c853;
-            padding: 6px 12px; /* Kleinerer Badge */
+            padding: 6px 12px;
             border-radius: 20px;
             display: inline-block;
             margin: 8px 0;
             font-weight: bold;
-            font-size: 0.8rem; /* Kleinere Schrift */
+            font-size: 0.8rem;
         }
         .cta-box {
             background: #1a1a1a;
-            padding: 25px; /* Weniger Padding */
+            padding: 25px;
             border-radius: 10px;
             border: 1px solid #6e00ff;
             margin: 30px 0;
@@ -71,7 +71,7 @@
         }
         .form-input {
             width: 100%;
-            padding: 12px; /* Kleinere Eingabefelder */
+            padding: 12px;
             margin: 8px 0;
             border-radius: 5px;
             border: none;
@@ -81,8 +81,8 @@
             background: linear-gradient(to right, #6e00ff, #ff00d4);
             color: white;
             border: none;
-            padding: 12px 25px; /* Kleinere Button-Größe */
-            font-size: 1rem; /* Kleinere Schrift */
+            padding: 12px 25px;
+            font-size: 1rem;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
@@ -99,18 +99,18 @@
             background: #1a1a1a;
             border-left: 4px solid #6e00ff;
             margin: 15px 0;
-            font-size: 0.9rem; /* Kleinere Schrift */
+            font-size: 0.9rem;
         }
         .scarcity {
             color: #ff4081;
             font-weight: bold;
             margin: 15px 0;
-            font-size: 0.9rem; /* Kleinere Schrift */
+            font-size: 0.9rem;
         }
         footer {
             text-align: center;
-            margin-top: 30px; /* Weniger Abstand */
-            font-size: 0.7rem; /* Kleinere Schrift */
+            margin-top: 30px;
+            font-size: 0.7rem;
             color: #777;
         }
     </style>
@@ -139,17 +139,77 @@
             <h2 style="margin-top: 0; font-size: 1.5rem;">You Could Be Next</h2>
             <p style="margin-bottom: 20px;">Enter your details below to get instant access to the same system Mark used:</p>
             
-            <form method="post" action="https://www.sendsteed.com/subscribe/">
+            <form method="post" action="https://www.sendsteed.com/subscribe/" id="signupForm">
                 <input class="form-input" name="n110385" required type="text" placeholder="Your First Name">
                 <input class="form-input" name="e110385" required type="email" placeholder="Your Best Email">
                 <input type="hidden" name="lllid" value="110385">
                 <input type="hidden" name="lluid" value="sandyarta">
                 <input type="hidden" name="redirect" value="">
-                <input type="hidden" name="source" value="githublandingpagemylead">
+                <input type="hidden" name="source" id="trafficSource" value="">
                 <button class="submit-btn" type="submit">GIVE ME ACCESS NOW</button>
             </form>
             
             <p style="font-size: 0.7rem; margin-top: 10px;">We respect your privacy. Unsubscribe at any time.</p>
         </div>
+        
+        <footer>
+            © 2023. All Rights Reserved.
+        </footer>
+    </div>
 
-    
+    <script>
+        // Funktion zur Erkennung der Traffic-Quelle
+        function detectTrafficSource() {
+            let source = "direct";
+            
+            // Prüfen, ob die Seite von einem Social Media kommt
+            const referrer = document.referrer.toLowerCase();
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // UTM-Parameter haben Priorität
+            if (urlParams.has('utm_source')) {
+                source = urlParams.get('utm_source');
+            } 
+            // Dann prüfen wir den Referrer
+            else if (referrer.includes('facebook.com') || referrer.includes('fb.com')) {
+                source = "facebook";
+            } else if (referrer.includes('twitter.com') || referrer.includes('t.co')) {
+                source = "twitter";
+            } else if (referrer.includes('instagram.com')) {
+                source = "instagram";
+            } else if (referrer.includes('youtube.com') || referrer.includes('youtu.be')) {
+                source = "youtube";
+            } else if (referrer.includes('tiktok.com')) {
+                source = "tiktok";
+            } else if (referrer.includes('linkedin.com')) {
+                source = "linkedin";
+            } else if (referrer.includes('google.com')) {
+                source = "google_organic";
+            } else if (referrer !== "") {
+                // Extrahiere die Domain von anderen Referrern
+                try {
+                    const url = new URL(referrer);
+                    source = url.hostname.replace('www.', '');
+                } catch (e) {
+                    source = referrer;
+                }
+            }
+            
+            return source;
+        }
+        
+        // Setze die Traffic-Quelle beim Laden der Seite
+        document.addEventListener('DOMContentLoaded', function() {
+            const trafficSource = detectTrafficSource();
+            document.getElementById('trafficSource').value = trafficSource;
+            console.log("Detected traffic source: " + trafficSource);
+        });
+        
+        // Optional: Auch beim Formular-Absenden nochmal setzen (für den Fall, dass sich etwas geändert hat)
+        document.getElementById('signupForm').addEventListener('submit', function() {
+            const trafficSource = detectTrafficSource();
+            document.getElementById('trafficSource').value = trafficSource;
+        });
+    </script>
+</body>
+</html>
