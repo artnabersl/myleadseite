@@ -113,6 +113,23 @@
             font-size: 0.7rem;
             color: #777;
         }
+        .confirmation-notice {
+            display: none;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #00c853;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .confirmation-notice h3 {
+            color: #00c853;
+            margin-top: 0;
+        }
+        .email-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
@@ -136,8 +153,8 @@
         </div>
 
         <div class="cta-box">
-            <h2 style="margin-top: 0; font-size: 1.5rem;">You Could Be Next</h2>
-            <p style="margin-bottom: 20px;">Enter your details below to get instant access to the same system Mark used:</p>
+            <h2 style="margin-top: 0; font-size: 1.5rem;">⚠️ IMPORTANT: Verify Your Email To Get Access</h2>
+            <p style="margin-bottom: 20px;">Enter your details below and then <strong>check your email to confirm your address</strong> to get instant access to the same system Mark used:</p>
             
             <form method="post" action="https://www.sendsteed.com/subscribe/" id="signupForm">
                 <input class="form-input" name="n110385" required type="text" placeholder="Your First Name">
@@ -146,10 +163,18 @@
                 <input type="hidden" name="lluid" value="sandyarta">
                 <input type="hidden" name="redirect" value="">
                 <input type="hidden" name="source" id="trafficSource" value="">
-                <button class="submit-btn" type="submit">GIVE ME ACCESS NOW</button>
+                <button class="submit-btn" type="submit">SEND ME VERIFICATION EMAIL</button>
             </form>
             
             <p style="font-size: 0.7rem; margin-top: 10px;">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+
+        <div class="confirmation-notice" id="confirmationNotice">
+            <div class="email-icon">📧</div>
+            <h3>Check Your Email To Complete Registration!</h3>
+            <p>We've sent a verification link to your email address.</p>
+            <p><strong>You MUST click the confirmation link in the email</strong> to get immediate access to Mark's $195,706 system.</p>
+            <p>Check your spam folder if you don't see the email within 5 minutes.</p>
         </div>
         
         <footer>
@@ -203,6 +228,15 @@
             const trafficSource = detectTrafficSource();
             document.getElementById('trafficSource').value = trafficSource;
             console.log("Detected traffic source: " + trafficSource);
+            
+            // Prüfen, ob die Seite mit einem Erfolgsparameter geladen wurde
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('submitted') || document.referrer.includes('sendsteed.com')) {
+                document.getElementById('confirmationNotice').style.display = 'block';
+                document.getElementById('signupForm').style.display = 'none';
+                document.querySelector('.cta-box h2').textContent = 'Email Verification Required!';
+                document.querySelector('.cta-box p').textContent = 'Your access is being prepared. Just one more step:';
+            }
         });
         
         // Optional: Auch beim Formular-Absenden nochmal setzen (für den Fall, dass sich etwas geändert hat)
